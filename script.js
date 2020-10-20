@@ -14,6 +14,7 @@ let index=0;
 
 /*-----------EVENTS---------*/
 
+//PROGRESS EVENT
 progressContainer.addEventListener('click',progressBar);
    
 
@@ -47,7 +48,8 @@ audioElement.addEventListener('timeupdate',updateProgressBar);
 function progressBar(e){
     const width = this.clientWidth;
     const xAxis = e.offsetX;
-    console.log(xAxis);
+    const {duration} = audioElement;
+    audioElement.currentTime=(xAxis/width) * duration;
 }
 
 //UPDATING PROGRESS BAR
